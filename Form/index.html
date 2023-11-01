@@ -1,0 +1,185 @@
+<!Doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <!-- <meta name="viewport" content="width-device=device,initial-scale=1"> -->
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+  <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"></script>
+  <title>My Simple Form</title>
+</head>
+
+<body style="background-color: rgb(218, 255, 255);">
+
+  <div class="container">
+
+    <h1>Create Your Portfolio</h1>
+
+    <div class="my-3" id="multistepsform">
+
+      <div class="input-group mb-3">
+        <input type="text" class="form-control" placeholder="Enter User Name" id="userName">
+      </div>
+      
+      <div class="input-BG-img mb-3">
+        <label>Set your Bg-Img</label>
+        <input type="file" id="bgImage" name="filename" class="form-control">
+        <!-- <input id="inputFileToLoad" type="file" onchange="encodeImageFileAsURL();" /> -->
+      </div>
+
+      <div class="input-profile-img mb-3">
+        <label>Set a Profile Img</label>
+        <input type="file" id="profileImage" name="filename" class="form-control" onchange="encodeImageFileAsURL();">
+        <!-- <input id="profileImage" type="file" onchange="encodeImageFileAsURL();"  >  -->
+      </div>
+
+      <div class="form-floating my-3">
+        <textarea class="form-control" placeholder="Leave a comment here" id="userDetails"></textarea>
+        <label for="floatingTextarea">Enter about yourself </label>
+      </div>
+
+      <!-- <label for="floatingTextarea"> <I><B>skill language option  comming soon.............  </B></I></label> <br><br><br> -->
+
+
+      <div class="input-group mb-3">
+        <span class="input-group-text" id="basic-addon1"> <i><b>Select lenguage</b></i></span>
+        <select id="userLang" multiple class="form-control"> 
+          <option value="Html">Html</option>
+          <option value="Css">Css</option>
+          <option value="Bootstrap">Bootstrap</option>
+          <option value="Java script">Java script</option>
+          <option value="Node Js">Node Js</option>
+          <option value="React Js">React Js</option>
+          <option value="Angular">Angular</option>
+          <option value="Python">Python</option>
+        </select>
+      </div>
+
+      <label> <i><b>Connect Platform</b></i> </label>
+
+      <div class="input-group mb-3">
+        <span class="input-group-text" id="basic-addon1">Facebook</span>
+        <input type="text" class="form-control" placeholder="Enter Your Facebook link" id="facebookLink">
+      </div>
+
+      <div class="input-group mb-3">
+        <span class="input-group-text" id="basic-addon1">Instagram</span>
+        <input type="text" class="form-control" placeholder="Enter Your Instagram link" id="instagramLink">
+      </div>
+
+      <div class="input-group mb-3">
+        <span class="input-group-text" id="basic-addon1">Twitter</span>
+        <input type="text" class="form-control" placeholder="Enter Your Twitter link" id="twitterLink">
+      </div>
+
+      <label> <i><b>Contact Item</b></i> </label>
+
+      <div class="input-group mb-3">
+
+        <span class="input-group-text" id="basic-addon1">Whatsapp</span>
+        <input type="text" class="form-control" placeholder="Enter Your Whatsapp Number" id="whatsappNumber">
+      </div>
+
+      <div class="input-group mb-3">
+        <span class="input-group-text" id="basic-addon1">Address</span>
+        <input type="text" class="form-control" placeholder="Enter Your mail Id" id="userAddress">
+      </div>
+
+      <div class="input-group mb-3">
+        <span class="input-group-text" id="basic-addon1">Website Url</span>
+        <input type="text" class="form-control" placeholder="Enter Your Website URL" id="webUrl">
+      </div>
+
+      <label> <i><b>Education Details</b></i> </label>
+      <div class="input-group mb-3">
+        <input type="text" class="form-control" placeholder="Year" id="eduYear">
+        <input type="text" class="form-control" placeholder="Education Details" id="eduName">
+        <button class="btn btn-outline-secondary" type="button" onclick="createEducationCols()"
+          id="addEducation">Add</button>
+      </div>
+
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Year</th>
+            <th scope="col">Course</th>
+          </tr>
+        </thead>
+        <tbody id="educationBox">
+        </tbody>
+      </table>
+      <hr>
+
+
+      <label> <i><b> Projects Details</b></i> </label>
+      <div class="input-group mb-3">
+        <input type="file" id="projectImage" name="filename" class="form-control">
+        <input type="text" class="form-control" placeholder="Project Name" id="projectName">
+        <input type="text" class="form-control" placeholder="Enter Your Git live page URL" id="webUrl">
+        <button class="btn btn-outline-secondary" type="button" id="addProject"
+          onclick="createProjectCols()">Add</button>
+      </div>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Projects List</th>
+          </tr>
+        </thead>
+        <tbody id="projectsList">
+        </tbody>
+      </table>
+      <hr>
+
+      <label> <i><b>Experts Discussion</b></i> </label>
+      <div class="input-group mb-3">
+
+        <label>Set a Expert Img </label>
+        <input type="file" id="expertImage" name="filename" class="form-control" value="Set a Expert Img">
+        <input type="text" class="form-control" placeholder="Experts Name" id="expertsName">
+        <input type="text" class="form-control" placeholder="Experts Designation" id="expertsDesig">
+      </div>
+      <button class="btn btn-outline-secondary" type="button" onclick="createExpertsLists()">Add</button>
+    </div>
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Expert Name</th>
+          <th scope="col">Expert Designation</th>
+        </tr>
+      </thead>
+      <tbody id="ExpertsList">
+      </tbody>
+    </table>
+    <hr>
+
+    <input type="button" class="btn btn-outline-success w-100" value="Submit" onclick="saveInformation()">
+
+  </div>
+  </div>
+
+  <script>
+    if (localStorage.getItem("isset") == "true") {
+      console.log("not getting the item from localstorage");
+      window.location.href = "../index.html";
+    }
+  </script>
+  <script>
+
+  </script>
+  <script src="./insert.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+    integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+    integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>

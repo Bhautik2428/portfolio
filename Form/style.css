@@ -1,0 +1,244 @@
+@import url(https://fonts.googleapis.com/css?family=Montserrat);
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  height: 100%;
+  background: linear-gradient(lightblue);
+}
+
+body {
+  font-family: 'Montserrat', arial, verdana;
+}
+
+#multistepsform {
+  width: 700px;
+  margin: 100px auto;
+  text-align: center;
+  position: relative;
+}
+
+#multistepsform fieldset {
+  background: #fff;
+  border: 0 none;
+  border-radius: 3px;
+  -webkit-box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4);
+          box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4);
+  padding: 20px 30px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  width: 80%;
+  margin: 0 10%;
+  position: relative;
+}
+
+#multistepsform fieldset:not(:first-of-type) {
+  display: none;
+}
+
+#multistepsform input,
+#multistepsform textarea {
+  padding: 15px;
+  border: 1px solid rgb(226, 223, 223);
+  border-radius: 3px;
+  margin-bottom: 10px;
+  width: 100%;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: 'montserrat';
+  color: #2c3e50;
+  font-size: 13px;
+}
+
+#multistepsform input:focus,
+#multistepsform textarea:focus {
+  border-color: #2c3e50;
+  outline: none;
+  color: #637373;
+}
+
+#multistepsform .action-button {
+  width: 100px;
+  background: #2c3e50;
+  font-weight: bold;
+  color: #fff;
+  -webkit-transition: 150ms;
+  transition: 150ms;
+  border: 0 none;
+  border-radius: 1px;
+  cursor: pointer;
+  padding: 10px 5px;
+  margin: 10px 5px;
+}
+
+#multistepsform .action-button:hover,
+#multistepsform .action-button:focus {
+  -webkit-box-shadow: 0 0 0 2px #f08a5d, 0 0 0 3px #ff9a76;
+          box-shadow: 0 0 0 2px #f08a5d, 0 0 0 3px #ff9a76;
+  color: #fff;
+}
+
+#multistepsform .fs-title {
+  font-size: 15px;
+  text-transform: uppercase;
+  color: #2c3e50;
+  margin-bottom: 10px;
+}
+
+#multistepsform .fs-subtitle {
+  font-weight: normal;
+  font-size: 13px;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+#multistepsform #progressbar {
+  margin-bottom: 30px;
+  overflow: hidden;
+  counter-reset: step;
+}
+
+#multistepsform #progressbar li {
+  list-style-type: none;
+  color: #000;
+  text-transform: uppercase;
+  font-size: 9px;
+  width: 80px;
+  padding: 0px 10px 50px 10px;
+  float: left;
+  position: relative;
+}
+
+#multistepsform #progressbar li:before {
+  content: counter(step);
+  counter-increment: step;
+  width: 20px;
+  line-height: 20px;
+  display: block;
+  font-size: 10px;
+  color: #fff;
+  background: #679b9b;
+  border-radius: 3px;
+  margin: 0 auto 5px auto;
+}
+
+#multistepsform #progressbar li:after {
+  content: "";
+  width: 100%;
+  height: 2px;
+  background: darkcyan;
+  position: absolute;
+  left: -50%;
+  top: 9px;
+  z-index: -1;
+}
+
+#multistepsform #progressbar li:first-child:after {
+  content: none;
+}
+
+#multistepsform #progressbar li.active {
+  color: darkcyan;
+}
+
+#multistepsform #progressbar li.active:before, #multistepsform #progressbar li.active:after {
+  background: #ff9a76;
+  color: white;
+}
+
+
+
+
+/* chackbox */
+
+
+.dropdown {
+  position: absolute;
+  top:50%;
+  transform: translateY(-50%);
+}
+
+a {
+  color: #fff;
+}
+
+.dropdown dd,
+.dropdown dt {
+  margin: 0px;
+  padding: 0px;
+}
+
+.dropdown ul {
+  margin: -1px 0 0 0;
+}
+
+.dropdown dd {
+  position: relative;
+}
+
+.dropdown a,
+.dropdown a:visited {
+  color: #fff;
+  text-decoration: none;
+  outline: none;
+  font-size: 12px;
+}
+
+.dropdown dt a {
+  background-color: #4F6877;
+  display: block;
+  padding: 8px 20px 5px 10px;
+  min-height: 25px;
+  line-height: 24px;
+  overflow: hidden;
+  border: 0;
+  width: 272px;
+}
+
+.dropdown dt a span,
+.multiSel span {
+  cursor: pointer;
+  display: inline-block;
+  padding: 0 3px 2px 0;
+}
+
+.dropdown dd ul {
+  background-color: #4F6877;
+  border: 0;
+  color: #fff;
+  display: none;
+  left: 0px;
+  padding: 2px 15px 2px 5px;
+  position: absolute;
+  top: 2px;
+  width: 280px;
+  list-style: none;
+  height: 100px;
+  overflow: auto;
+}
+
+.dropdown span.value {
+  display: none;
+}
+
+.dropdown dd ul li a {
+  padding: 5px;
+  display: block;
+}
+
+.dropdown dd ul li a:hover {
+  background-color: #fff;
+}
+
+button {
+  background-color: #6BBE92;
+  width: 302px;
+  border: 0;
+  padding: 10px 0;
+  margin: 5px 0;
+  text-align: center;
+  color: #fff;
+  font-weight: bold;
+}
