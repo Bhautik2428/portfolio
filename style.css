@@ -58,7 +58,7 @@ body{
 }
 
 .banner-area{
-    background-image: url(mypictures/bhautik/IMG_20220510_152108_753.jpg);
+    /* background-image: url(mypictures/bhautik/IMG_20220510_152108_753.jpg); */
     background-position: center;
     background-size: cover;
     position: relative;

@@ -16,20 +16,52 @@ let educationBox = document.getElementById("educationBox");
 let projectsList = document.getElementById("projectsList");
 let expertsList = document.getElementById("ExpertsList");
 let bgImage = document.getElementById("bgImage");
-let profileImage = document.getElementById("profileImage") // used
-let projectImage = document.getElementById("projectImage")
+let profileImage = document.getElementById("profileImage"); // used
+let projectImage = document.getElementById("projectImage");
 let expertImage = document.getElementById("expertImage");
+let projectGitUrl = document.getElementById("projectGitUrl");
 
 let arrEdu = [];
 let arrProject = [];
 let arrExperts = [];
 let selectedOptions = [];
 
+bgImage.addEventListener("change", function (e) {
+  const file = e.target.files[0];
+
+  if (file) {
+    const reader = new FileReader();
+    reader.onload = function (e) {
+      const dataURL = e.target.result;
+
+      // Store the data URL in localStorage
+      localStorage.setItem("backgroundImage", dataURL);
+    };
+    reader.readAsDataURL(file);
+  }
+});
+
+profileImage.addEventListener("change", function (e) {
+  const file = e.target.files[0];
+
+  if (file) {
+    const reader = new FileReader();
+    reader.onload = function (e) {
+      const dataURL = e.target.result;
+
+      // Store the data URL in localStorage
+      localStorage.setItem("profileImage", dataURL);
+    };
+    reader.readAsDataURL(file);
+  }
+});
+
 function createEducationCols() {
   if (!eduName.value == "" || !eduYear.value == "") {
     let data = {
       name: eduName.value,
       year: eduYear.value,
+      details: eduDetails.value,
     };
     arrEdu.push(data);
     let tr = document.createElement("tr");
@@ -46,27 +78,50 @@ function createEducationCols() {
 
 function createProjectCols() {
   if (!projectName.value == "") {
+    // let dataForImage;
+    // const file = projectImage.files[0];
+    // if (file) {
+    //   const reader = new FileReader();
+    //   reader.onload = function (e) {
+    //     const dataURL = e.target.result;
+    //     // console.log("Project Link : ", data)
+    //     console.log("dataUrl : ", dataURL);
+    //     dataForImage = dataURL;
     let data = {
       name: projectName.value,
-      // project image 
-      image: URL.createObjectURL(projectImage.files[0])
-    }
+      image: projectImage.files[0],
+      projectUrl: projectGitUrl.value,
+    };
+    console.log("Project Link : ", data);
     arrProject.push(data);
     let tr = document.createElement("tr");
     let td = document.createElement("td");
     td.innerHTML = data.name;
     tr.appendChild(td);
     projectsList.appendChild(tr);
+    // };
+    // reader.readAsDataURL(file);
+    // }
   }
 }
 
 function createExpertsLists() {
   if (!expertsDesig.value == "" || !expertsName.value == "") {
+    // const file = expertImage.files[0];
+    // let dataForImage;
+    // if (file) {
+    //   const reader = new FileReader();
+    //   reader.onload = function (e) {
+    //     const dataURL = e.target.result;
+    //     console.log("dataUrl : ", dataURL);
+    //     dataForImage = dataURL;
     let data = {
-      image: URL.createObjectURL(expertImage.files[0]),
+      image: expertImage.files[0],
       name: expertsName.value,
       desig: expertsDesig.value,
+      details: expertDetails.value
     };
+    console.log("experts: ", data);
     arrExperts.push(data);
     let tr = document.createElement("tr");
     let tdDesig = document.createElement("td");
@@ -76,27 +131,13 @@ function createExpertsLists() {
     tr.appendChild(tdName);
     tr.appendChild(tdDesig);
     expertsList.appendChild(tr);
+    //   };
+    //   reader.readAsDataURL(file);
+    // }
+
     // tr.innerHTML = document
   }
 }
-
-// function encodeImageFileAsURL() {
-
-//   var filesSelected = document.getElementById("profileImage").files;
-//   if (filesSelected.length > 0) {
-//     var fileToLoad = filesSelected[0];
-//     var fileReader = new FileReader();
-//     fileReader.onload = function(fileLoadedEvent) {
-//       var srcData = fileLoadedEvent.target.result; // <--- data: base64
-//       var newImage = document.createElement('img');
-//       newImage.src = srcData;
-//       document.getElementById("imgprofile").innerHTML = newImage.outerHTML;
-//       alert("Converted Base64 version is " + document.getElementById("imgprofile").innerHTML);
-//       console.log("Converted Base64 version is " + document.getElementById("imgprofile").innerHTML);
-//     }
-//     fileReader.readAsDataURL(fileToLoad);
-//   }
-// }
 
 function saveInformation() {
   for (var i = 0; i < userLang.options.length; i++) {
@@ -105,11 +146,11 @@ function saveInformation() {
     }
   }
 
+  let uniqueId = Math.floor(Math.random() * 10000)
+
   let data = {
-    // backgroundImage : window.URL.createObjectURL(bgImage),
-    // profileImage : window.URL.createObjectURL(profileImage), 
+    id: uniqueId,
     userName: userName.value,
-    profileImage: profileImage.value, // used , add   
     userDetail: userDetail.value,
     userLang: selectedOptions,
     facebookLink: facebookLink.value,
@@ -119,12 +160,62 @@ function saveInformation() {
     userAddress: userAddress.value,
     webUrl: webUrl.value,
     educationDetails: arrEdu,
-    experts: arrExperts,
-    projects: arrProject,
   };
 
-  localStorage.setItem("isset" , true);
-  localStorage.setItem('imgBase64', this.img);
-  localStorage.setItem("siteData" , JSON.stringify(data));
+
+  // let base64Data =;
+
+  const indexedDB = window.indexedDB;
+  // 2
+  const request = indexedDB.open("base64Data", 1);
+  request.onerror = function (event) {
+    console.error("An error occurred with IndexedDB");
+    console.error("Error", event);
+  };
+  
+  request.onupgradeneeded = function () {
+    //1
+    const db = request.result;
+    //2
+    const store = db.createObjectStore("FormData", { keyPath: "id" });
+    //3
+    // store.createIndex("getData", ["experts"], { unique: false });
+  };
+
+  request.onsuccess = function () {
+    console.log("Database opened successfully");
+
+    const db = request.result;
+
+    // 1
+    const transaction = db.transaction("FormData", "readwrite");
+
+    //2
+    const store = transaction.objectStore("FormData");
+    // const getData = store.index("getData");
+
+    store.put({
+      id: uniqueId,
+      experts: arrExperts,
+      projects: arrProject,
+      backgroundImg : bgImage.files[0],
+      profileImg : profileImage.files[0]
+    });
+
+    //4
+    const getDataQuery = store.get(uniqueId);
+    // 5
+    getDataQuery.onsuccess = function () {
+      console.log("getDataQuery", getDataQuery.result);
+    };
+
+    // 6
+    transaction.oncomplete = function () {
+      db.close();
+    };
+  };
+
+  localStorage.setItem("isset", true);
+  localStorage.setItem("siteData", JSON.stringify(data));
   console.log("Data of the form", data);
 }
