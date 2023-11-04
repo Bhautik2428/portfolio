@@ -140,7 +140,7 @@ function createExpertsLists() {
 }
 
 function saveInformation() {
-  for (var i = 0; i < userLang.options.length; i++) {
+  for (var i = 0; i < userLang; i++) {
     if (userLang.options[i].selected) {
       selectedOptions.push(userLang.options[i].value);
     }
