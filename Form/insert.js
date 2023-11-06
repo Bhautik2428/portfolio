@@ -20,6 +20,11 @@ let profileImage = document.getElementById("profileImage"); // used
 let projectImage = document.getElementById("projectImage");
 let expertImage = document.getElementById("expertImage");
 let projectGitUrl = document.getElementById("projectGitUrl");
+let addSkillBtn = document.getElementById("addSkillToList");
+let addSkillToList = document.getElementById("skillInput");
+let skillDetail = document.getElementById("skillDetail");
+let skillBox = document.getElementById("skillBox");
+
 
 let arrEdu = [];
 let arrProject = [];
@@ -78,15 +83,6 @@ function createEducationCols() {
 
 function createProjectCols() {
   if (!projectName.value == "") {
-    // let dataForImage;
-    // const file = projectImage.files[0];
-    // if (file) {
-    //   const reader = new FileReader();
-    //   reader.onload = function (e) {
-    //     const dataURL = e.target.result;
-    //     // console.log("Project Link : ", data)
-    //     console.log("dataUrl : ", dataURL);
-    //     dataForImage = dataURL;
     let data = {
       name: projectName.value,
       image: projectImage.files[0],
@@ -99,22 +95,12 @@ function createProjectCols() {
     td.innerHTML = data.name;
     tr.appendChild(td);
     projectsList.appendChild(tr);
-    // };
-    // reader.readAsDataURL(file);
-    // }
   }
 }
+console.log()
 
 function createExpertsLists() {
   if (!expertsDesig.value == "" || !expertsName.value == "") {
-    // const file = expertImage.files[0];
-    // let dataForImage;
-    // if (file) {
-    //   const reader = new FileReader();
-    //   reader.onload = function (e) {
-    //     const dataURL = e.target.result;
-    //     console.log("dataUrl : ", dataURL);
-    //     dataForImage = dataURL;
     let data = {
       image: expertImage.files[0],
       name: expertsName.value,
@@ -131,20 +117,15 @@ function createExpertsLists() {
     tr.appendChild(tdName);
     tr.appendChild(tdDesig);
     expertsList.appendChild(tr);
-    //   };
-    //   reader.readAsDataURL(file);
-    // }
-
-    // tr.innerHTML = document
   }
 }
 
 function saveInformation() {
-  for (var i = 0; i < userLang; i++) {
-    if (userLang.options[i].selected) {
-      selectedOptions.push(userLang.options[i].value);
-    }
-  }
+  // for (var i = 0; i < userLang; i++) {
+  //   if (userLang.options[i].selected) {
+  //     selectedOptions.push(userLang.options[i].value);
+  //   }
+  // }
 
   let uniqueId = Math.floor(Math.random() * 10000)
 
@@ -179,7 +160,7 @@ function saveInformation() {
     //2
     const store = db.createObjectStore("FormData", { keyPath: "id" });
     //3
-    // store.createIndex("getData", ["experts"], { unique: false });
+    // store.createIndex("getData", ["experts"], { unique: false }); 
   };
 
   request.onsuccess = function () {
@@ -213,9 +194,28 @@ function saveInformation() {
     transaction.oncomplete = function () {
       db.close();
     };
-  };
 
+  };
+  
   localStorage.setItem("isset", true);
   localStorage.setItem("siteData", JSON.stringify(data));
   console.log("Data of the form", data);
+  window.location.reload()
 }
+
+addSkillBtn.addEventListener("click" , () => {
+
+    let data = {
+      skillName: addSkillToList.value,
+      skillDetail: skillDetail.value
+    };
+    console.log("experts: ", data);
+    selectedOptions.push(data);
+    let tr = document.createElement("tr");
+    let tdName = document.createElement("td");
+    let tdDetail = document.createElement("td");
+    tdName.innerHTML = data.skillName;
+    tdDetail.innerHTML = data.skillDetail;
+    tr.appendChild(tdName);
+    skillBox.appendChild(tr);
+ });

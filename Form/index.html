@@ -10,24 +10,23 @@
   <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
   <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"></script>
   <script src="https://kit.fontawesome.com/5fb1b96b9b.js" crossorigin="anonymous"></script>
-  <title>Portfolio Simple Form</title>
+  <title>My Simple Form</title>
 
   <style>
-
-    *{
+    * {
       margin: 0px;
       padding: auto;
     }
 
-    body{
+    body {
       width: 50%;
       height: 00%;
       margin: 0px 0px 0px 25%;
     }
 
-    .container h1{
-      justify-content: center; 
-      display: flex; 
+    .container h1 {
+      justify-content: center;
+      display: flex;
       font-size: 50px;
       font-weight: 900;
       margin: 4%;
@@ -35,7 +34,7 @@
       color: aqua;
     }
 
-    .labal-title{
+    .labal-title {
       align-items: center;
       justify-content: center;
       display: flex;
@@ -45,65 +44,70 @@
       color: rgb(200, 255, 0);
     }
 
-    .Projects-set{
+    .Projects-set {
       padding: 20px 0px 0px 0%;
     }
 
-    .Contact-set-btn{
+    .Contact-set-btn {
       padding: 20px 0px 0px 45%;
     }
-
-
   </style>
 
 </head>
 
-      <body style="background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSr9ywdWVRbM0V8aAFfkcwE-TjF4R6Mr1KKhQ&usqp=CAU); background-position: center; background-repeat: no-repeat; background-size: cover;" >
+<body
+  style="background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSr9ywdWVRbM0V8aAFfkcwE-TjF4R6Mr1KKhQ&usqp=CAU); background-position: center; background-repeat: no-repeat; background-size: cover;">
 
   <div class="container">
 
     <h1>Create Your Portfolio</h1>
 
-    <div class="my-3" id="multistepsform">      
-  
-    <label for="" class="labal-title">navigation Section Information</label>
-        <div class="input-group mb-3 was-validated">
-          <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-user fa-flip" style="color: #000000;"></i></span>
-          <input type="text" class="form-control" id="userName" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" pattern="^[a-zA-Z]+$" required>
-        </div>
+    <div class="my-3" id="multistepsform">
+
+      <label for="" class="labal-title">navigation Section Information</label>
       <div class="input-group mb-3 was-validated">
-        <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-images fa-flip"></i></span>
+        <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-user "
+            style="color: #000000;"></i></span>
+        <input type="text" class="form-control" id="userName" placeholder="Username" aria-label="Username"
+          aria-describedby="basic-addon1" pattern="^[a-zA-Z]+$" required>
+      </div>
+      <div class="input-group mb-3 was-validated">
+        <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-images "></i></span>
         <input type="file" name="filename" class="form-control" aria-label="file example" id="bgImage" required>
       </div>
-      
-      
-      <label class="labal-title">About Section Information</label>  
-        <div class="input-group mb-3 was-validated">
-          <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-images fa-flip"></i> </span>
-          <input type="file" name="filename" class="form-control" aria-label="file example" id="profileImage" onchange="encodeImageFileAsURL();" required>
-        </div> 
-        <div class="input-group mb-3 was-validated">
-          <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-comments fa-flip" style="color: #000000;"></i></span>
-          <textarea class="form-control" id="userDetails" placeholder="Leave a comment here" required></textarea>
-        </div>
-        <div class="input-group mb-3 was-validated">
-          <span class="input-group-text" id="basic-addon1"><i class="fa-brands fa-facebook fa-flip" style="color: #005eff;"></i></span>
-          <input type="url" class="form-control" placeholder="Enter Your Facebook link" id="facebookLink" required>
-        </div>
-        <div class="input-group mb-3 was-validated">
-          <span class="input-group-text" id="basic-addon1"><i class="fa-brands fa-instagram fa-flip" style="color: #ff00bb;"></i></span>
-          <input type="url" class="form-control" placeholder="Enter Your Instagram link" id="instagramLink" required>
-        </div>
-        <div class="input-group mb-3 was-validated">
-          <span class="input-group-text" id="basic-addon1"><i class="fa-brands fa-x-twitter fa-flip"></i></span>
-          <input type="url" class="form-control" placeholder="Enter Your Twitter link" id="twitterLink" required>
-        </div>
 
-        
-<!--        <label class="labal-title">skill Section Information</label> -->
-      <!--<div class="input-group mb-3">
+
+      <label class="labal-title">About Section Information</label>
+      <div class="input-group mb-3 was-validated">
+        <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-images "></i> </span>
+        <input type="file" name="filename" class="form-control" aria-label="file example" id="profileImage"
+          onchange="encodeImageFileAsURL();" required>
+      </div>
+      <div class="input-group mb-3 was-validated">
+        <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-comments "
+            style="color: #000000;"></i></span>
+        <textarea class="form-control" id="userDetails" placeholder="Leave a comment here" required></textarea>
+      </div>
+      <div class="input-group mb-3 was-validated">
+        <span class="input-group-text" id="basic-addon1"><i class="fa-brands fa-facebook "
+            style="color: #005eff;"></i></span>
+        <input type="url" class="form-control" placeholder="Enter Your Facebook link" id="facebookLink" required>
+      </div>
+      <div class="input-group mb-3 was-validated">
+        <span class="input-group-text" id="basic-addon1"><i class="fa-brands fa-instagram "
+            style="color: #ff00bb;"></i></span>
+        <input type="url" class="form-control" placeholder="Enter Your Instagram link" id="instagramLink" required>
+      </div>
+      <div class="input-group mb-3 was-validated">
+        <span class="input-group-text" id="basic-addon1"><i class="fa-brands fa-x-twitter "></i></span>
+        <input type="url" class="form-control" placeholder="Enter Your Twitter link" id="twitterLink" required>
+      </div>
+
+
+      <label class="labal-title">skill Section Information</label>
+      <!-- <<div class="input-group mb-3">
         <span class="input-group-text" id="basic-addon1"> <i><b>Select lenguage</b></i></span>
-        <select id="userLang" multiple class="form-control"> 
+        <select id="userLang" multiple class="form-control">
           <option value="Html">Html</option>
           <option value="Css">Css</option>
           <option value="Bootstrap">Bootstrap</option>
@@ -115,47 +119,81 @@
         </select>
       </div> -->
 
-      <!-- <div class="input-group mb-3">
-        <div class="input-group-text">
-          <input class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input">
-        </div>
-        <input type="text" class="form-control" aria-label="Text input with checkbox">
-      </div> -->
+
+      <div class="input-group mb-0">
+        <!-- <label for="skills" class="form-label"></label> -->
+      </div>    
+      <div class="input-group mb-1">
+        <span class="input-group-text">Skills</span>
+        <input type="text" id="skillInput" class="form-control">
+        <!-- <button class="btn btn-success" id="addSkillToList">Add</button> -->
+      </div>  
+      <div class="input-group was-validated mb-1" style="padding: 15px 0px 0px 0px;">
+        <span class="input-group-text"><i class="fa-solid fa-comments" style="color: #000000;"></i></span>
+        <textarea type="text" class="form-control" placeholder="Leave a comment here" id="skillDetail"
+          required></textarea>
+      </div>
+      <div class="input-group mb-1 Contact-set-btn">
+        <button class="btn btn-success" id="addSkillToList">Add</button>
+      </div>
+      
+
+      <table class="table mt-3">
+        <thead>
+          <tr>
+            <th scope="col">Skill</th>
+            <!-- <th scope="col">Details</th> -->
+          </tr>
+        </thead>
+        <tbody id="skillBox">
+        </tbody>
+      </table>
+
 
 
       <label class="labal-title"> <i><b>Contact Item</b></i> </label>
       <div class="input-group mb-3 was-validated ">
-        <span class="input-group-text" id="basic-addon1"><i class="fa-brands fa-whatsapp fa-flip" style="color: #3ce000;"></i></span>
-        <input type="number" class="form-control" placeholder="Enter Your Whatsapp Number" id="whatsappNumber" onKeyPress="if(this.value.length==10) return false;" required>
+        <span class="input-group-text" id="basic-addon1"><i class="fa-brands fa-whatsapp "
+            style="color: #3ce000;"></i></span>
+        <input type="number" class="form-control" placeholder="Enter Your Whatsapp Number" id="whatsappNumber"
+          onKeyPress="if(this.value.length==10) return false;" required>
       </div>
       <div class="input-group mb-3 was-validated">
-        <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-map-location-dot fa-flip" style="color: #f00000;"></i></span>
+        <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-map-location-dot "
+            style="color: #f00000;"></i></span>
         <input type="text" class="form-control" placeholder="Enter Your Address-location" id="userAddress" required>
       </div>
       <div class="input-group mb-3 was-validated">
-        <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-globe fa-flip" style="color: #005eff;"></i></span>
+        <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-globe "
+            style="color: #005eff;"></i></span>
         <input type="url" class="form-control" placeholder="Enter Your Website URL" id="webUrl" required>
       </div>
 
-     
+
 
       <label class="labal-title"> <i><b>Education Details</b></i> </label>
       <div class="container2">
         <div class="input-group mb-3 was-validated">
-          <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-calendar-days fa-flip" style="color: #000000;"></i></span>
-          <input type="text" class="form-control" placeholder="Year" id="eduYear" onKeyPress="if(this.value.length==4) return false;" required>
+          <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-calendar-days "
+              style="color: #000000;"></i></span>
+          <input type="text" class="form-control" placeholder="Year" id="eduYear"
+            onKeyPress="if(this.value.length==4) return false;" required>
         </div>
         <div class="input-group md-12 was-validated">
-          <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-circle-info fa-flip" style="color: #000000;"></i></span>
+          <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-circle-info "
+              style="color: #000000;"></i></span>
           <input type="text" class="form-control" placeholder="Education Details" id="eduName" required>
         </div>
         <div class="input-group md-12 was-validated" style="padding: 15px 0px 0px 0px;">
-          <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-comments fa-flip" style="color: #000000;"></i></span>
-          <textarea type="text" class="form-control" placeholder="Leave a comment here" id="eduDetails" required></textarea>
+          <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-comments "
+              style="color: #000000;"></i></span>
+          <textarea type="text" class="form-control" placeholder="Leave a comment here" id="eduDetails"
+            required></textarea>
         </div>
         <div class="input-group md-12 Contact-set-btn">
-          <button class="btn btn-primary" type="button" onclick="createEducationCols()" id="addEducation"><i class="fa-solid fa-repeat fa-bounce" style="color: #050505;"></i></button>
-          </div>
+          <button class="btn btn-primary" type="button" onclick="createEducationCols()" id="addEducation"><i
+              class="fa-solid fa-repeat fa-bounce" style="color: #050505;"></i></button>
+        </div>
       </div><br>
       <table class="table">
         <thead>
@@ -170,85 +208,89 @@
       </table>
       <hr style="border: 2px solid #000000;">
 
-      
+
 
       <label class="labal-title"><i><b> Projects Details</b></i> </label>
-        <div class="container2">
-          <div class="input-group md-12 was-validated Projects-set">
-            <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-images fa-flip"></i></span>
-            <input type="file" id="projectImage" name="filename" class="form-control" required>
-          </div>
-          <div class="input-group md-12 was-validated Projects-set">
-            <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-pen-to-square fa-flip"></i></span>
-            <input type="text" class="form-control" placeholder="Project Name" id="projectName" required>
-          </div>
-          <div class="input-group md-12 was-validated Projects-set">
-            <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-link fa-flip" style="color: #000000;"></i></span>
-            <input type="url" class="form-control" placeholder="Enter Your Git live page URL" id="projectGitUrl" required>
-          </div>
-          <div class="input-group md-12 Contact-set-btn Projects-set ">
-            <button class="btn btn-primary" type="button" id="addProject" onclick="createProjectCols()"><i class="fa-solid fa-repeat fa-bounce" style="color: #050505;"></i></button>
-          </div>
-        </div><br>
-        <table class="table">
-          <thead>
-            <tr>
-              <!-- <th scope="col">Projects img</th> -->
-              <th scope="col">Projects Name</th>
-              <!-- <th scope="col">Projects URL</th> -->
-            </tr>
-          </thead>
-          <tbody id="projectsList">
-          </tbody>
-        </table>
-      <hr style="border: 2px solid #000000;"> 
+      <div class="container2">
+        <div class="input-group md-12 was-validated Projects-set">
+          <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-images "></i></span>
+          <input type="file" id="projectImage" name="filename" class="form-control" required>
+        </div>
+        <div class="input-group md-12 was-validated Projects-set">
+          <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-pen-to-square "></i></span>
+          <input type="text" class="form-control" placeholder="Project Name" id="projectName" required>
+        </div>
+        <div class="input-group md-12 was-validated Projects-set">
+          <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-link "
+              style="color: #000000;"></i></span>
+          <input type="url" class="form-control" placeholder="Enter Your Git live page URL" id="projectGitUrl" required>
+        </div>
+        <div class="input-group md-12 Contact-set-btn Projects-set ">
+          <button class="btn btn-primary" type="button" id="addProject" onclick="createProjectCols()"><i
+              class="fa-solid fa-repeat fa-bounce" style="color: #050505;"></i></button>
+        </div>
+      </div><br>
+      <table class="table">
+        <thead>
+          <tr>
+            <!-- <th scope="col">Projects img</th> -->
+            <th scope="col">Projects Name</th>
+            <!-- <th scope="col">Projects URL</th> -->
+          </tr>
+        </thead>
+        <tbody id="projectsList">
+        </tbody>
+      </table>
+      <hr style="border: 2px solid #000000;">
 
 
 
 
-    <label class="labal-title"> <i><b>Experts Discussion</b></i> </label>
-    <div class="container2">
-      <div class="input-group md-12 was-validated Projects-set">
-        <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-images fa-flip"></i></span>
-        <input type="file" id="expertImage" name="filename" class="form-control" value="Set a Expert Img" required>
-      </div>
-      <div class="input-group md-12 was-validated Projects-set">
-        <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-user-tie fa-flip"></i></span>
-        <input type="text" class="form-control" placeholder="Experts Name" id="expertsName" required>
-      </div>
-      <div class="input-group md-12 was-validated Projects-set">
-        <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-briefcase fa-flip"></i></span>
-        <input type="text" class="form-control" placeholder="Experts Designation" id="expertsDesig" required>
-      </div>
-      <div class="input-group md-12 was-validated Projects-set">
-        <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-comments fa-flip" style="color: #000000;"></i></span>
-        <textarea class="form-control" placeholder="Expert discussion" id="expertDetails" required></textarea>
-      </div>
-      <div class="input-group md-12 Contact-set-btn">
-        <button class="btn btn-primary" type="button" onclick="createExpertsLists()"><i class="fa-solid fa-repeat fa-bounce" style="color: #050505;"></i></button>      
-      </div>
+      <label class="labal-title"> <i><b>Experts Discussion</b></i> </label>
+      <div class="container2">
+        <div class="input-group md-12 was-validated Projects-set">
+          <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-images "></i></span>
+          <input type="file" id="expertImage" name="filename" class="form-control" value="Set a Expert Img" required>
+        </div>
+        <div class="input-group md-12 was-validated Projects-set">
+          <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-user-tie "></i></span>
+          <input type="text" class="form-control" placeholder="Experts Name" id="expertsName" required>
+        </div>
+        <div class="input-group md-12 was-validated Projects-set">
+          <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-briefcase "></i></span>
+          <input type="text" class="form-control" placeholder="Experts Designation" id="expertsDesig" required>
+        </div>
+        <div class="input-group md-12 was-validated Projects-set">
+          <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-comments "
+              style="color: #000000;"></i></span>
+          <textarea class="form-control" placeholder="Expert discussion" id="expertDetails" required></textarea>
+        </div>
+        <div class="input-group md-12 Contact-set-btn">
+          <button class="btn btn-primary" type="button" onclick="createExpertsLists()"><i
+              class="fa-solid fa-repeat fa-bounce" style="color: #050505;"></i></button>
+        </div>
 
-    </div><br>
-    <table class="table">
-      <thead>
-        <tr>
-          <th scope="col">Expert name</th>
-          <th scope="col">Expert Designation</th>
-          <!-- <th scope="col">Expert img</th> -->
-          <!-- <th scope="col">Expert discussion</th> -->
-        </tr>
-      </thead>
-      <tbody id="ExpertsList">
-      </tbody>
-    </table>
-    <hr style="border: 2px solid #000000;">
+      </div><br>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Expert name</th>
+            <th scope="col">Expert Designation</th>
+            <!-- <th scope="col">Expert img</th> -->
+            <!-- <th scope="col">Expert discussion</th> -->
+          </tr>
+        </thead>
+        <tbody id="ExpertsList">      
+        </tbody>
+      </table>
+      <hr style="border: 2px solid #000000;">
 
 
 
 
-    <input type="button" class="btn btn-outline-success w-100" value="Submit" onclick="saveInformation()">
+      <input type="button" class="btn btn-outline-success w-100" value="Submit" onclick="saveInformation()">
 
-  </div>
+    </div>
   </div>
 
   <script>
@@ -256,6 +298,9 @@
       console.log("not getting the item from localstorage");
       window.location.href = "../index.html";
     }
+
+    console.log(saveInformation())
+
   </script>
   <script>
 

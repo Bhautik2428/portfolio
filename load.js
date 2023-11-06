@@ -204,12 +204,9 @@ function createLanguageView() {
     lenguageContent.classList.add("lenguage-content");
 
     let title = document.createElement("h3");
-    title.innerHTML = element;
+    title.innerHTML = element.skillName;
     let description = document.createElement("p");
-    description.innerHTML = `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-        eiusmod tempor incididunt ut labore et dolore magna aliqua. Enim nunc
-        faucibus a pellentesque sit amet porttitor eget dolor. Blandit libero
-        volutpat sed cras ornare arcu dui vivamus arcu.`;
+    description.innerHTML = element.skillDetail;
     lenguageContent.appendChild(title);
     lenguageContent.appendChild(description);
     singleLenguage.appendChild(lenguageContent);
@@ -341,5 +338,7 @@ async function getDataFromIndexdDb() {
     console.error(err);
   }
 }
+
+// console.log(getDataFromIndexdDb())
 
 fillUpData();
